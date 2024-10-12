@@ -1837,6 +1837,7 @@ class EndToEndTest extends IntegrationTestCase
         ';
 
         $this->expectException(ValidationException::class);
+        $this->expectExceptionMessage('Validation failed. Root: 1');
         $result = GraphQL::executeQuery($schema, $queryString);
         $result->toArray(DebugFlag::RETHROW_INTERNAL_EXCEPTIONS);
     }

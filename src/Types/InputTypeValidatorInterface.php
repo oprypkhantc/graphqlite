@@ -20,5 +20,5 @@ interface InputTypeValidatorInterface
      *
      * @param object $input     The input type object to validate
      */
-    public function validate(object $input): void;
+    public function validate(object $input, bool $root = false): void;
 }
