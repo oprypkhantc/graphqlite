@@ -67,6 +67,8 @@ class InputType extends MutableInputObjectType implements ResolvableMutableInput
     /** @param array<string, mixed> $args */
     public function resolve(object|null $source, array $args, mixed $context, ResolveInfo $resolveInfo): object
     {
+        $isRoot = $source === null;
+
         // Sometimes developers may wish to pull the source from somewhere (like a model from a database)
         // instead of actually creating a new instance. So if given, we'll use that.
         $source = $this->createInstance($this->makeConstructorArgs($source, $args, $context, $resolveInfo));
@@ -82,7 +84,7 @@ class InputType extends MutableInputObjectType implements ResolvableMutableInput
         }
 
         if ($this->inputTypeValidator && $this->inputTypeValidator->isEnabled()) {
-            $this->inputTypeValidator->validate($source);
+            $this->inputTypeValidator->validate($source, $isRoot);
         }
 
         return $source;

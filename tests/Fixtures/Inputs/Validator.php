@@ -26,8 +26,8 @@ class Validator implements InputTypeValidatorInterface
         return $this->isEnabled;
     }
 
-    public function validate(object $input): void
+    public function validate(object $input, bool $root = false): void
     {
-        throw new ValidationException('Validation failed');
+        throw new ValidationException("Validation failed. Root: $root");
     }
 }
