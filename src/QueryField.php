@@ -47,7 +47,7 @@ final class QueryField extends FieldDefinition
         string $name,
         OutputType $type,
         array $arguments,
-        ResolverInterface $originalResolver,
+        public readonly ResolverInterface $originalResolver,
         callable $resolver,
         string|null $comment,
         string|null $deprecationReason,

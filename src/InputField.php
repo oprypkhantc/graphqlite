@@ -42,7 +42,7 @@ final class InputField extends InputObjectField
         string $name,
         InputType $type,
         array $arguments,
-        ResolverInterface $originalResolver,
+        public readonly ResolverInterface $originalResolver,
         callable $resolver,
         private bool $forConstructorHydration,
         string|null $comment,
